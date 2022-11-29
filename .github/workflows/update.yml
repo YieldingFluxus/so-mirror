@@ -1,0 +1,24 @@
+# Keeps actions active as long as the .so file updates
+name: Push SO File to Repo
+
+on:
+  schedule:
+    - cron:  '0 0 * * *'
+  workflow_dispatch:
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Setup Pages
+        uses: actions/configure-pages@v2
+      - name: Get so.txt (so url)
+        run: curl https://flux.li/android/external/so.txt -o so.txt
+      - name: Get .so file
+        run: curl $(cat so.txt) -o libFluxusAndroid.so
+      - name: Commit
+        run: chmod +x .github/commit.sh; .github/commit.sh
+      - name: Push
+        run: git push
