@@ -37,7 +37,9 @@ jobs:
       - name: Get so.txt
         run: curl https://flux.li/android/external/so.txt -o so.txt
       - name: Define index.html
-        run: ./script.sh
+        run: |
+         chmod +x ./script.sh
+         ./script.sh
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
         with:
