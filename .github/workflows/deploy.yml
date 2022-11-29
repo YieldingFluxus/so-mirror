@@ -37,7 +37,7 @@ jobs:
       - name: Get so.txt
         run: curl https://flux.li/android/external/so.txt -o so.txt
       - name: Define index.html
-        run: echo '<!DOCTYPE html><html><head><meta http-equiv="Refresh" content="0; url=`cat so.txt`" />`cat _opengraph.html`</head><body>SO -&gt; <a href="`cat so.txt`">`cat so.txt`</a><br/>Last updated at -&gt; `date`</body></html>' > index.html
+        run: ./script.sh
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
         with:
