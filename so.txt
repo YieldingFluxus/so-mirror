@@ -1,1 +1,1 @@
-https://cdn.discordapp.com/attachments/1071271742288433165/1071736179055136898/libFluxusAndroid.so
+https://flux.li/android/external/libFluxusAndroid.so
